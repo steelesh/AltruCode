@@ -1,0 +1,22 @@
+﻿body.dark-mode {
+    background-color: #1e1e20 !important;
+    color: #e0e0e0 !important;
+}
+
+    body.dark-mode .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' strokeLinecap='round' strokeMiterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+.dark-mode .navbar-brand,
+.dark-mode .nav-link,
+.dark-mode .nav-link:hover
+{
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    color: #e0e0e0;
+    background-color: #333;
+    border-color: #444;
+}

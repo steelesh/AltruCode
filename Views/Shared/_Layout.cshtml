@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AltruCode is a web platform connecting developers to collaborate on coding projects and showcase their work. Join us and find meaningful projects to contribute to.">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/darkmode.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm navbar-toggleable-sm mb-3">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><b>AltruCode</b></a>
+                <i class="fas fa-moon" id="moonIcon" style="cursor:pointer; margin-left: 5px; display: none;"></i>
+                <i class="fas fa-sun" id="sunIcon" style="cursor:pointer; margin-left: 5px;"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="content container fade-in">
+        @RenderBody()
+    </div>
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/darkmode.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</html>
