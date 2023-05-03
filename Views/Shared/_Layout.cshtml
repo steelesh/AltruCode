@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
-<html lang="en-US">
+<html lang="EN-US">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AltruCode is a web platform connecting developers to collaborate on coding projects and showcase their work. Join us and find meaningful projects to contribute to.">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
@@ -14,14 +13,29 @@
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index"><b>AltruCode</b></a>
-                <i class="fas fa-moon" id="moonIcon" style="cursor:pointer; margin-left: 5px; display: none;"></i>
-                <i class="fas fa-sun" id="sunIcon" style="cursor:pointer; margin-left: 5px;"></i>
+                <i class="fas fa-moon me-3" id="moonIcon" style="cursor:pointer; display: none;"></i>
+                <i class="fas fa-sun me-3" id="sunIcon" style="cursor:pointer;"></i>
+            </div>
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarNav">
+                <ul class="navbar-nav flex-grow-1">
+                    <partial name="_NavItemsPartial"/>
+                </ul>
             </div>
         </div>
     </nav>
     <div class="content container fade-in">
         @RenderBody()
     </div>
+    <footer class="footer text-muted">
+        <div class="container text-center lh-1 mt-3">
+            <p><small>Released under the MIT License.</small></p>
+            <p><small>Copyright © 2023-Present Steele.</small></p>
+        </div>
+    </footer>
 </body>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
