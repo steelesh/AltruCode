@@ -32,6 +32,18 @@ body {
     box-shadow: none;
 }
 
+.dropdown-item {
+    color: rgba(0,0,0,.55);
+}
+
+.dropdown-item:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.dropdown-item:active {
+    background-color: #e9ecef;
+}
+
 .content {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
