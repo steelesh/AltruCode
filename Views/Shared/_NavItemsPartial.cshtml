@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a class="nav-link" asp-controller="Home" asp-action="Index">Dashboard</a>
+    <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
 </li>
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" id="projectdropdown" role="button" data-bs-toggle="dropdown"
@@ -7,7 +7,7 @@
         Project
     </a>
     <div style="border: none" class="dropdown-menu" aria-labelledby="projectdropdown">
-        <a class="dropdown-item" asp-controller="Home" asp-action="Index">Add Project</a>
-        <a class="dropdown-item" asp-controller="Home" asp-action="Index">Browse Projects</a>
+        <a class="dropdown-item" asp-controller="Projects" asp-action="AddProject">Add Project</a>
+        <a class="dropdown-item" asp-controller="Projects" asp-action="Index">Browse Projects</a>
     </div>
 </li>
