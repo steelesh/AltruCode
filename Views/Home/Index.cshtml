@@ -1,9 +1,24 @@
-﻿<div class="content container">
+﻿@using AltruCode.Graph
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="content container">
     <div class="text-center mt-5">
-        <h1 class="mb-3">Under Construction</h1>
-        <p class="my-3">
-            AltruCode is a unique web platform designed to bring developers together, making it easier for them to showcase their coding projects and connect with like-minded developers. AltruCode promotes collaboration by providing a space where developers can find meaningful projects to contribute to.
-        </p>
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <h4>Welcome @User.GetUserGraphGivenName()!</h4>
+        }
+        else
+        {
+            <h1 class="mb-3">Welcome to AltruCode</h1>
+                 <p class="my-3">
+                     AltruCode is an exclusive web platform designed for University of Cincinnati developers to showcase their coding projects and connect with like-minded people.
+                 </p>
+                 <p>
+                     Please note that users are authenticated using Azure Active Directory, and only <b>University of Cincinnati Students</b> can access the platform.
+                 </p>
+                 <a class="btn btn-danger btn-large my-2" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Click here to sign in</a>
+        }
+        <h4 class="mt-3">AltruCode is still under construction. We anticipate that it will be ready for production in</h4>
         <div id="countdown" class="countdown"></div>
     </div>
 </div>
