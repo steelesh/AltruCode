@@ -1,4 +1,5 @@
 using System.Net.Http.Headers;
+using AltruCode.Graph;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -26,12 +27,25 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
                         new AuthenticationHeaderValue("Bearer", token);
                 })
             );
+            // Get user from Graph
+            var user = await graphClient.Me.Request()
+                .Select(u => new
+                {
+                    u.DisplayName,
+                    u.GivenName,
+                    u.Surname,
+                    u.Mail
+                }).GetAsync();
+            context.Principal?.AddUserGraphInfo(user);
         };
     })
-    .EnableTokenAcquisitionToCallDownstreamApi()
+    .EnableTokenAcquisitionToCallDownstreamApi(options =>
+    {
+        builder.Configuration.Bind("AzureAd", options);
+    }, GraphConstants.Scopes)
     .AddMicrosoftGraph(options =>
     {
-        options.Scopes = string.Join(' ', new[] { "User.Read", "User.ReadBasic.All" });
+        options.Scopes = string.Join(' ', GraphConstants.Scopes);
     })
     .AddInMemoryTokenCaches();
 
@@ -41,9 +55,7 @@ builder.Services.AddControllersWithViews(options =>
         .RequireAuthenticatedUser()
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
-});
-builder.Services.AddRazorPages()
-    .AddMicrosoftIdentityUI();
+}).AddMicrosoftIdentityUI();
 
 var app = builder.Build();
 
@@ -64,6 +76,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
 
 app.Run();
