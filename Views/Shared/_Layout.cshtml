@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
 <html lang="EN-US">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +26,16 @@
                 <ul class="navbar-nav flex-grow-1">
                     <partial name="_NavItemsPartial"/>
                 </ul>
+                <div class="d-flex align-items-center ms-auto justify-content-center">
+                    @if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <a class="btn btn-danger my-2" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut" asp-route-post_logout_redirect_uri="@Url.Action("Index", "Home", null, Context.Request.Scheme)">Sign out</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary my-2" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+                    }
+                </div>
             </div>
         </div>
     </nav>
