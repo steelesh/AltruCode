@@ -26,8 +26,4 @@
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.9.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models\" />
-    </ItemGroup>
-
 </Project>
