@@ -56,4 +56,4 @@ Please note that users are authenticated using Azure Active Directory, and only 
 
 ## License
 
-[MIT](./LICENSE) License © 2023-Present [Steele Shreve](https://github.com/steelesh)
+[MIT](./LICENSE) License © 2023-Present [Steele](https://github.com/steelesh)
